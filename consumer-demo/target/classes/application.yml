@@ -1,0 +1,32 @@
+server:
+  port: 8088
+logging:
+  level:
+    com.avgd: debug
+spring:
+  application:
+    name: consumer-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+feign:
+  hystrix:
+    enabled: true
+ribbon:
+  ConnectionTimeout: 500
+  ReadTimeOut: 2000
+#默认降级时长
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+

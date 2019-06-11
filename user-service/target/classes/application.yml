@@ -1,0 +1,24 @@
+server:
+  port: 8081
+logging:
+  level:
+    com.avgd: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.0.207:3306/lamp20170615?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8&allowMultiQueries=true
+    username: root
+    password: 1234567890
+  application:
+    name: user-service
+mybatis:
+  type-aliases-package: com.avgd.user.pojo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 90
